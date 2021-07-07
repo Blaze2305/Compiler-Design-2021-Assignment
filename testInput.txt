@@ -1,0 +1,17 @@
+global
+	def
+		a:int;
+		b:int;
+	end
+	a = 1;
+	b = 7;
+	if a < b :
+		print a;
+	else
+		print b;
+	end;
+	while a < 5:
+		b = b * 2;
+	end;
+	print b;
+end;
