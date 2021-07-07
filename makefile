@@ -10,11 +10,13 @@ GXX := cl /EHsc /std:c++17
 BUILD_NAME := tutorial.exe
 DELETE_OBJS := del *.obj
 DELETE_FOLDER := call rmdir /S /Q
+DELETE_FILE := call del /Q /F
 CLEAR_SCREEN := cls
 else
 GXX := g++ -std:c++17
 BUILD_NAME := tutorial.out
 DELETE_FOLDER := rm -rf
+DELETE_FILE := rm -f
 CLEAR_SCREEN := clear
 endif
 
@@ -34,6 +36,7 @@ buildDir: |clean
 
 clean:
 	 ${DELETE_FOLDER} $(BUILD_DIR) | echo Done
+	 ${DELETE_FILE} ${ZIP_NAME}
 .PHONY: clean
 
 
@@ -44,5 +47,5 @@ test: |build
 
 
 submission: |build
-	${COMPRESSOR} ${ZIP_NAME} .
+	${COMPRESSOR} ${ZIP_NAME} ${SOURCE_DIR} main.cpp ${TEST_FILE_NAME}
 .PHONY: submission
