@@ -64,16 +64,7 @@ TokenType Scanner::scanToken(){
 					acceptChar();
 					result = Number;
 				}
-			}
-			// else if(isGlyph(this->currentChar)){
-			// 	while(isGlyph(this->currentChar)){
-			// 		acceptChar();
-			// 		if(isOperator(this->currentString)){
-			// 			result = Operator;
-			// 		}
-			// 	}
-			// }
-			else if(isOperator(std::string(1,this->currentChar))){
+			}else if(isOperator(std::string(1,this->currentChar))){
 				while(isOperator(std::string(1,this->currentChar))){
 					acceptChar();
 					result = Operator;

@@ -22,16 +22,17 @@ class Scanner {
 		std::string currentString;
 		std::fstream inFile;
 		static int line;
+		// methods
+		void acceptChar();
+		void discardChar();
+		TokenType scanToken();
+		void scanSeparator();
 
 
 	public:
 		Scanner(std::string filename);
 
 		// methods
-		void acceptChar();
-		void discardChar();
-		TokenType scanToken();
-		void scanSeparator();
 		TokenRecord getToken();
 
 		// getters
