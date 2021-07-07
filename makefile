@@ -38,7 +38,7 @@ buildDir: |clean
 
 clean:
 	 ${DELETE_FOLDER} $(BUILD_DIR) | echo Done
-	 ${DELETE_FILE} ${ZIP_NAME}
+	 ${DELETE_FILE} ${ZIP_NAME} | echo Done
 .PHONY: clean
 
 
