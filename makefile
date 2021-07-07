@@ -12,19 +12,21 @@ DELETE_OBJS := del *.obj
 DELETE_FOLDER := call rmdir /S /Q
 DELETE_FILE := call del /Q /F
 CLEAR_SCREEN := cls
+OUTPUT_FLAG := /Fe:
 else
 GXX := g++ -std=c++17
 BUILD_NAME := tutorial.out
 DELETE_FOLDER := rm -rf
 DELETE_FILE := rm -f
 CLEAR_SCREEN := clear
+OUTPUT_FLAG := -o
 endif
 
 default: build
 .PHONY: default
 
 build: |buildDir
-	$(GXX) $(SOURCES) /Fe:$(BUILD_DIR)/$(BUILD_NAME)
+	$(GXX) $(SOURCES) ${OUTPUT_FLAG}$(BUILD_DIR)/$(BUILD_NAME)
 	${DELETE_OBJS}
 .PHONY: build
 
