@@ -13,7 +13,7 @@ DELETE_FOLDER := call rmdir /S /Q
 DELETE_FILE := call del /Q /F
 CLEAR_SCREEN := cls
 else
-GXX := g++ -std:c++17
+GXX := g++ -std=c++17
 BUILD_NAME := tutorial.out
 DELETE_FOLDER := rm -rf
 DELETE_FILE := rm -f
