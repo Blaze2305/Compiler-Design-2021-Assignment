@@ -20,10 +20,22 @@ enum TokenType {
 	RParen,
 	EOT,
 	Conditional,
-	None
+	Global,
+	End,
+	Def,
+	Assignment,
+	Colon,
+	SemiColon,
+	If,
+	Else,
+	While,
+	Read,
+	Print,
+	Comma,
+	None,
 };
 
-static const std::array<std::string,11> TOKEN_ENUM_TYPE_NAMES = {
+static const std::array<std::string,23> TOKEN_ENUM_TYPE_NAMES = {
 	"Identifier",
 	"Number",
 	"Type",
@@ -34,6 +46,18 @@ static const std::array<std::string,11> TOKEN_ENUM_TYPE_NAMES = {
 	"RParen",
 	"EOT",
 	"Conditional",
+	"Global",
+	"End",
+	"Def",
+	"Assignment",
+	"Colon",
+	"SemiColon",
+	"If",
+	"Else",
+	"While",
+	"Read",
+	"Print",
+	"Comma",
 	"None"
 };
 

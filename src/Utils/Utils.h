@@ -17,7 +17,7 @@ static const std::array<std::string,13> OPERATORS = {";",":","+","-","*","%","/"
 
 static const std::array<std::string,3> TYPES = {"int","char","bool"};
 
-static const std::array<std::string,2> CONDITIONALS = {"or","and"};
+static const std::array<std::string,3> CONDITIONALS = {"or","and","not"};
 
 static const std::array<std::string,5> STATEMENTS = {"if","while","else","print","read"};
 

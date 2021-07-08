@@ -7,12 +7,52 @@
 #include<algorithm>
 #include<iostream>
 #include<array>
+#include<stdexcept>
+#include<map>
 
 #include "../Models/Structs.h"
 #include "../Utils/Utils.h"
 
 static const std::array<char,4> TO_SKIP = {' ','\n','\r','\t'};
 
+static const std::map<std::string,TokenType> TOKEN_MAP = {
+	{
+		"global",Global
+	},
+	{
+		"end",End,
+	},
+	{
+		"def",Def
+	},
+	{
+		"=",Assignment
+	},
+	{
+		":",Colon
+	},
+	{
+		";",SemiColon
+	},
+	{
+		"if",If
+	},
+	{
+		"else",Else
+	},
+	{
+		"read",Read
+	},
+	{
+		"print",Print
+	},
+	{
+		"while",While
+	},
+	{
+		",",Comma
+	}
+};
 
 class Scanner {
 
@@ -39,15 +79,5 @@ class Scanner {
 		char getCurrentChar();
 
 };
-
-//   public Token scan(){
-//     currentSpelling = new StringBuffer("");
-//     while(currentChar == ' ' || currentChar == '\n' || currentChar == '\r')
-//       scanSeparator();
-//     currentKind = scanToken();
-//     finalkind = currentKind;
-//     return new Token(currentKind, currentSpelling.toString(), line);
-//   }
-  
 
 #endif
