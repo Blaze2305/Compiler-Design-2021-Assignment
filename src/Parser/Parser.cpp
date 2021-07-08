@@ -1,22 +1,25 @@
 #include "Parser.h"
 
-Parser::Parser(){
+
+Parser::Parser(std::string fileName){
+	scanner = new Scanner(fileName);
 	f=true;
-	f2=true;
+	f1=true;
 	p=true;
 	count=0;
 }
 
+
 void Parser::accept(TokenType expected){
 	if(currentToken.tokenType == expected){
-		currentToken =  scanner.getToken();
+		currentToken =  scanner->getToken();
 	}else{
-		throw  Exception("Syntax error on line " + currentToken.line);
+		throw  std::runtime_error("Syntax error on line " + currentToken.lineNumber);
 	}
 }
 
 void Parser::acceptToken(){
-	currentToken = scanner.getToken();
+	currentToken = scanner->getToken();
 }
 
 bool Parser::checkToken(TokenType expected){
@@ -24,9 +27,8 @@ bool Parser::checkToken(TokenType expected){
 }
 
 
-void Parser::parse(std::string fileName){
-	scanner = Scanner(fileName);
-	currentToken = scanner.getToken();
+void Parser::parse(){
+	currentToken = scanner->getToken();
 }
 
 void Parser::parseProgram(){

@@ -53,16 +53,14 @@ TokenType Scanner::scanToken(){
 						}catch(std::out_of_range err){
 							result = Identifier;
 						}
-						// below wont work cuz map is const, and [] doesnt have const overload
-						// if(TOKEN_MAP.find(this->currentString)!=TOKEN_MAP.end()){
-						// 	result = TOKEN_MAP[this->currentString];
-						// }else{
-						// 	result = Keyword;
-						// }
 					}else if(isType(this->currentString)){
 						result = Type;
 					}else if(isStatement(this->currentString)){
-						result = Statement;
+						try{
+							result = TOKEN_MAP.at(this->currentString);
+						}catch(std::out_of_range err){
+							result = Statement;
+						}
 					}else if(isConditional(this->currentString)){
 						result = Conditional;
 					}else{

@@ -5,21 +5,22 @@
 
 #include "../Models/Structs.h"
 #include "../Scanner/Scanner.h"
-
+#include<stdexcept>
 class Parser{
 	private:
 		TokenRecord currentToken;
-		Scanner scanner;
+		Scanner *scanner;
 		bool f;
 		bool f1;
 		bool p;
 		int count;
 
 	public:
+		Parser(std::string fileName);	
 		void accept(TokenType expected);
 		void acceptToken();
 		bool checkToken(TokenType expected);
-		void parse(std::string filename);
+		void parse();
 		void parseProgram();
 };
 
