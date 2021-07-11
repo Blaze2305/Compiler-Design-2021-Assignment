@@ -106,6 +106,10 @@ bool isKeyword(std::string item){
 	return (std::find(KEYWORDS.begin(),KEYWORDS.end(),item) != KEYWORDS.end());
 }
 
+bool isIgnoredOperatorToken(TokenType token){
+	return (std::find(IGNORE_OPERATORS.begin(),IGNORE_OPERATORS.end(),token)!=IGNORE_OPERATORS.end());
+}
+
 
 #if DEBUG_PARSE_ENTER_EXIT
 	void printParseEnters(int num,char sep,std::string func){

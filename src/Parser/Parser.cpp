@@ -188,7 +188,6 @@ void Parser::parseAssignementStmt(){
 	tabNum+=1;
 	printParseEnters(tabNum,tabChar,"parseAssignementStmt");
 	accept(Identifier);
-
 	accept(Assignment);
 	parseExp();
 	tabNum-=1;
@@ -262,7 +261,7 @@ void Parser::parseBexp(){
 		parseBexpA();
 	}else {
 		parseExp();
-		accept(Operator);
+		accept(Conditional);
 		parseExp();
 		parseBexpA();
 	}

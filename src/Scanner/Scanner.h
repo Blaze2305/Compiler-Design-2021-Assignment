@@ -51,6 +51,15 @@ static const std::map<std::string,TokenType> TOKEN_MAP = {
 	},
 	{
 		",",Comma
+	},
+	{
+		"==",Conditional
+	},
+	{
+		"<",Conditional
+	},
+	{
+		">",Conditional
 	}
 };
 

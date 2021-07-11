@@ -26,5 +26,5 @@ By : Pranav B , Dharithri M, Venu D
 - bexp --> (bexp) | exp < exp bexpA | exp == exp bexpA | not bexp bexpA
 - bexpA --> or bexp bexpA | and bexp bexpA | #
 - exp --> identifier expA | number expA | (exp)
-- expA --> -exp expA | + exp expA | * exp expA | / exp expA | #
+- expA --> - exp expA | + exp expA | * exp expA | / exp expA | #
 - number --> 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9

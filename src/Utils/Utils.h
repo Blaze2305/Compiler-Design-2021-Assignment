@@ -18,6 +18,8 @@
 
 static const std::array<std::string,13> OPERATORS = {";",":","+","-","*","%","/","!=","=","==","<",">","!"};
 
+static const std::array<TokenType,2> IGNORE_OPERATORS = {SemiColon,Colon};
+
 static const std::array<std::string,3> TYPES = {"int","char","bool"};
 
 static const std::array<std::string,3> CONDITIONALS = {"or","and","not"};
@@ -42,6 +44,7 @@ bool isStatement(std::string c);
 bool isConditional(std::string c);
 // bool isGlyph(char c);
 bool isKeyword(std::string item);
+bool isIgnoredOperatorToken(TokenType token);
 
 void printParseEnters(int num,char sep,std::string func);
 void printParseExits(int num,char sep,std::string func);
