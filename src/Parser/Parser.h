@@ -42,6 +42,7 @@ class Parser{
 		void parseExp();
 		void parseExpA();
 		void parseNumber();
+		~Parser();
 
 };
 #endif

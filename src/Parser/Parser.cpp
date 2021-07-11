@@ -10,6 +10,9 @@ Parser::Parser(std::string fileName){
 	count=0;
 }
 
+Parser::~Parser(){
+	delete scanner;
+}
 
 void Parser::accept(TokenType expected){
 	if(currentToken.tokenType == expected){
