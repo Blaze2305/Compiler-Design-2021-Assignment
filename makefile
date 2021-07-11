@@ -48,6 +48,6 @@ test: |build
 .PHONY: test
 
 
-submission: |build
+submission: |clean
 	${COMPRESSOR} ${ZIP_NAME} ${SOURCE_DIR} main.cpp ${TEST_FILE_NAME}
 .PHONY: submission

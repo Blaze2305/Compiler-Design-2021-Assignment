@@ -105,3 +105,38 @@ bool isGlyph(char c){
 bool isKeyword(std::string item){
 	return (std::find(KEYWORDS.begin(),KEYWORDS.end(),item) != KEYWORDS.end());
 }
+
+
+#if DEBUG_PARSE_ENTER_EXIT
+	void printParseEnters(int num,char sep,std::string func){
+		std::string tab = std::string(num,sep);
+		std::cout<<tab<<"Entered "+ func + "\n";
+	}
+
+	void printParseExits(int num,char sep,std::string func){
+		std::string tab = std::string(num,sep);
+		std::cout<<tab<<"Exited "+ func + "\n";
+	}
+	
+
+#else
+	void printParseEnters(int num,char sep,std::string func){
+		
+	}
+
+	void printParseExits(int num,char sep,std::string func){
+		
+	}
+
+#endif
+
+
+#if DEBUG_TOKEN_ACCEPT
+	void printAcceptedToken(TokenType token,int lineNumber,std::string value){
+		std::cout<<"Accepted token "<< TOKEN_ENUM_TYPE_NAMES[token]<<" in line "<< lineNumber << " as " << value << std::endl;
+	}
+#else
+	void printAcceptedToken(TokenType token,int lineNumber,std::string value){
+
+	}
+#endif

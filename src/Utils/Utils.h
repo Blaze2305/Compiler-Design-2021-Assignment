@@ -2,6 +2,9 @@
 
 #define UTILS_H_
 
+#define DEBUG_PARSE_ENTER_EXIT false
+#define DEBUG_TOKEN_ACCEPT true
+
 #include <string>
 #include <algorithm>
 #include <cctype>
@@ -39,5 +42,9 @@ bool isStatement(std::string c);
 bool isConditional(std::string c);
 // bool isGlyph(char c);
 bool isKeyword(std::string item);
+
+void printParseEnters(int num,char sep,std::string func);
+void printParseExits(int num,char sep,std::string func);
+void printAcceptedToken(TokenType token,int lineNumber,std::string value);
 
 #endif

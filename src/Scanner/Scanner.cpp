@@ -79,7 +79,7 @@ TokenType Scanner::scanToken(){
 				}
 				// get semicolon ,assignment and colon
 				try{
-					result = TOKEN_MAP.at(std::string(1,this->currentChar));
+					result = TOKEN_MAP.at(this->currentString);
 				}catch(std::out_of_range err){
 					result = Operator;
 				}
