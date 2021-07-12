@@ -17,7 +17,7 @@ class SymbolTable{
 		void addSymbolToTable(std::string symbolName,int lineNumber ,std::string type);
 		void setSymbolValue(std::string symbolName,std::string value);
 		bool checkIfSymbolExists(std::string symbolName);
-		void SymbolTable::showSymbolTable();
+		void showSymbolTable();
 		// void setSymbolType(std::string symbolName,std::string type);
 
 };
