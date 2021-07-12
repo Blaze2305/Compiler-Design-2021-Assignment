@@ -1,6 +1,6 @@
 #include "SymTab.h"
 
-void addSymbolToTable(std::string symbolName,int lineNumber ,std::string type){
+void SymbolTable::addSymbolToTable(std::string symbolName,int lineNumber ,std::string type){
 	try{
 		SymTabRow tableRow = SymbolTableMap.at(symbolName); 
 		std::ostringstream out;
@@ -22,13 +22,13 @@ void SymbolTable::setSymbolValue(std::string symbolName,std::string value){
 	}
 }
 
-void SymbolTable::setSymbolType(std::string symbolName,std::string type){
-	try{
-		SymTabRow tableRow = SymbolTableMap.at(symbolName); 
-		SymbolTableMap[symbolName].type = type;
-	}catch(std::out_of_range err){
-		std::ostringstream out;
-		out << "Symbol " << symbolName << " does not exist.\n";
-		throw std::runtime_error(out.str());
-	}
-}
+// void SymbolTable::setSymbolType(std::string symbolName,std::string type){
+// 	try{
+// 		SymTabRow tableRow = SymbolTableMap.at(symbolName); 
+// 		SymbolTableMap[symbolName].type = type;
+// 	}catch(std::out_of_range err){
+// 		std::ostringstream out;
+// 		out << "Symbol " << symbolName << " does not exist.\n";
+// 		throw std::runtime_error(out.str());
+// 	}
+// }
