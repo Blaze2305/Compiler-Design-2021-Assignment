@@ -19,10 +19,12 @@ void Parser::showSymbolTable(){
 	std::ostringstream out ;
 	out<<line<<"\n";
 	out<<std::setw(40)<<"SYMBOL TABLE\n\n";
-	out<<std::setw(15)<<"Symbol Name"<<std::setw(15)<<"Type"<<std::setw(15)<<"Value"<<std::setw(20)<<"Line Number\n";
+	// out<<std::setw(15)<<"Symbol Name"<<std::setw(15)<<"Type"<<std::setw(15)<<"Value"<<std::setw(20)<<"Line Number\n";
+	out<<std::setw(15)<<"Symbol Name"<<std::setw(15)<<"Type"<<std::setw(20)<<"Line Number\n";
 	out<<line<<"\n";
 	for(auto const& [key,value] : this->symtab.SymbolTableMap){
-		out<<std::setw(15)<<value.symbolName<<std::setw(15)<<value.type<<std::setw(15)<<value.attribute<<std::setw(20)<<value.lineNumber<<"\n";
+		// out<<std::setw(15)<<value.symbolName<<std::setw(15)<<value.type<<std::setw(15)<<value.attribute<<std::setw(20)<<value.lineNumber<<"\n";
+		out<<std::setw(15)<<value.symbolName<<std::setw(15)<<value.type<<std::setw(20)<<value.lineNumber<<"\n";
 	}
 	out<<line<<"\n";
 	std::cout<<out.str()<<std::endl;
