@@ -2,8 +2,10 @@ SOURCE_DIR = src
 SOURCES = $(wildcard *.cpp) $(wildcard src/*/*.cpp)
 BUILD_DIR = bin
 TEST_FILE_NAME = testInput.txt
-COMPRESSOR = tar -czvf
+COMPRESSOR = tar 
+COMPRESSOR_FLAGS = -czvf
 ZIP_NAME = 4NI18CS122_4NI18CS121_4NI18CS126.tar.gz
+ZIP_EXCLUDES = --exclude="./.git" --exclude="./.vscode" --exclude="./bin"
 
 ifeq ($(OS),Windows_NT) 
 GXX := cl /EHsc /std:c++17
@@ -49,5 +51,5 @@ test: |build
 
 
 submission: |clean
-	${COMPRESSOR} ${ZIP_NAME} ${SOURCE_DIR} main.cpp ${TEST_FILE_NAME}
+	${COMPRESSOR} ${ZIP_EXCLUDES} ${COMPRESSOR_FLAGS} ${ZIP_NAME} *
 .PHONY: submission
