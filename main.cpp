@@ -16,9 +16,9 @@ int main(int argc, char *argv[]){
 	std::cout<<argv[1]<<std::endl;
 	std::cout<<"----------------------------------------------------------------------------\n";
 	
-	Scanner scanner = Scanner(argv[1]);
 
 	// TESTING SCANNER 
+	// Scanner scanner = Scanner(argv[1]);
 	// while(true){
 	// 	TokenRecord val = scanner.getToken();
 	// 	std::cout<<val;
