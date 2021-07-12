@@ -5,7 +5,7 @@ global
 	end
 	a = 1;
 	b = 7;
-	if a == c :
+	if a == b :
 		print a;
 	else
 		print b;
