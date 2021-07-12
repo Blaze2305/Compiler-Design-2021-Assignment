@@ -8,6 +8,10 @@ Scanner::Scanner(std::string filename){
 	this->currentString = "";
 }
 
+Scanner::~Scanner(){
+	this->inFile.close();
+}
+
 void Scanner::acceptChar(){
 	this->currentString += currentChar;
 	char ch;

@@ -80,7 +80,7 @@ class Scanner {
 
 	public:
 		Scanner(std::string filename);
-
+		~Scanner();
 		// methods
 		TokenRecord getToken();
 
