@@ -14,6 +14,20 @@ Parser::~Parser(){
 	delete scanner;
 }
 
+void Parser::showSymbolTable(){
+	std::string line = std::string(70,'-');
+	std::ostringstream out ;
+	out<<line<<"\n";
+	out<<std::setw(40)<<"SYMBOL TABLE\n\n";
+	out<<std::setw(15)<<"Symbol Name"<<std::setw(15)<<"Type"<<std::setw(15)<<"Value"<<std::setw(20)<<"Line Number\n";
+	out<<line<<"\n";
+	for(auto const& [key,value] : this->symtab.SymbolTableMap){
+		out<<std::setw(15)<<value.symbolName<<std::setw(15)<<value.type<<std::setw(15)<<value.attribute<<std::setw(20)<<value.lineNumber<<"\n";
+	}
+	out<<line<<"\n";
+	std::cout<<out.str()<<std::endl;
+}
+
 void Parser::accept(TokenType expected){
 	if(currentToken.tokenType == expected){
 		printAcceptedToken(currentToken.tokenType,currentToken.lineNumber,currentToken.Value);
@@ -115,7 +129,13 @@ void Parser::parseTypeListA(){
 void Parser::parseType(){
 	tabNum+=1;
 	printParseEnters(tabNum,tabChar,"parseType");
+	std::string tempType = this->currentToken.Value;
+	int tempLineNum = this->currentToken.lineNumber;
 	accept(Type);
+	for(std::string symbol : this->symbolNamesList){
+		this->symtab.addSymbolToTable(symbol,tempLineNum,tempType);
+	}
+	this->symbolNamesList.clear();
 	tabNum-=1;
 	printParseExits(tabNum,tabChar,"parseType");
 }
@@ -137,6 +157,7 @@ void Parser::parseVarList(){
 void Parser::parseVar(){
 	tabNum+=1;
 	printParseEnters(tabNum,tabChar,"parseVar");
+	this->symbolNamesList.push_back(this->currentToken.Value);
 	accept(Identifier);
 	tabNum-=1;
 	printParseExits(tabNum,tabChar,"parseVar");

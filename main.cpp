@@ -38,5 +38,6 @@ int main(int argc, char *argv[]){
 	}
 	std::cout<<"VALID CODE\n";
 
+	parser.showSymbolTable();
 	return 0;
 }

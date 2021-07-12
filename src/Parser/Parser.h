@@ -9,6 +9,10 @@
 #include "../SymTab/SymTab.h"
 #include<stdexcept>
 #include<sstream>
+#include<vector>
+#include <iomanip>
+
+
 class Parser{
 	private:
 		TokenRecord currentToken;
@@ -16,12 +20,11 @@ class Parser{
 		SymbolTable symtab;
 		int count;
 
-	public:
-		Parser(std::string fileName);	
+		std::vector<std::string> symbolNamesList;
+		//parsing methods
 		void accept(TokenType expected);
 		void acceptToken();
 		bool checkToken(TokenType expected);
-		void parse();
 		void parseProgram();
 		void parseDeclList();
 		void parseDecl();
@@ -44,6 +47,11 @@ class Parser{
 		void parseExp();
 		void parseExpA();
 		void parseNumber();
+
+	public:
+		Parser(std::string fileName);	
+		void parse();
+		void showSymbolTable();
 		~Parser();
 
 };

@@ -2,6 +2,24 @@
 
 By : Pranav B , Dharithri M, Venu D
 
+## How to run
+
+This requires a c++ toolchain capable of compiling c++17 and above . It probably works with c++14 as well, but kept c++17 just to be sure.
+
+Recommended MSVC in windows and g++ in linux/Mac.
+
+This project includes a makefile so to build you will require make to be installed.
+For native msvc windows users : 
+```cmd
+   $ choco install make
+```
+## Builing and running
+
+```bash
+   $ make  
+```
+This builds a binary in the bin/ folder. This requires a command line arg while running , which is the name of the text file containing the code to be parsed.
+
 ## Production Rules :
 
     Assume # = epsilon

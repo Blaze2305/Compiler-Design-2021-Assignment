@@ -8,7 +8,7 @@ void SymbolTable::addSymbolToTable(std::string symbolName,int lineNumber ,std::s
 		out << "Previous declaration at " << tableRow.lineNumber + "\n";
 		throw std::runtime_error(out.str());
 	}catch(std::out_of_range err){
-		this->SymbolTableMap[symbolName] = SymTabRow{symbolName,"","",lineNumber};
+		this->SymbolTableMap[symbolName] = SymTabRow{symbolName,type,"",lineNumber};
 	}
 }
 void SymbolTable::setSymbolValue(std::string symbolName,std::string value){
