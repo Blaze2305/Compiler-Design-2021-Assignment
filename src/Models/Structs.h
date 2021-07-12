@@ -74,6 +74,7 @@ struct SymTabRow {
 	std::string symbolName;
 	std::string type;
 	std::string attribute;
+	int lineNumber;
 
 	friend std::ostream& operator << (std::ostream& out,const SymTabRow& obj);
 };

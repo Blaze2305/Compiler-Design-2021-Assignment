@@ -6,12 +6,14 @@
 #include "../Models/Structs.h"
 #include "../Scanner/Scanner.h"
 #include "../Utils/Utils.h"
+#include "../SymTab/SymTab.h"
 #include<stdexcept>
 #include<sstream>
 class Parser{
 	private:
 		TokenRecord currentToken;
 		Scanner *scanner;
+		SymbolTable symtab;
 		int count;
 
 	public:

@@ -6,6 +6,7 @@ std::ostream& operator<< (std::ostream& out, const SymTabRow& obj){
 	out<<"Symbol Name --> "<<obj.symbolName<<std::endl;
 	out<<"Type --> "<<obj.type<<std::endl;
 	out<<"Value --> "<<obj.attribute<<std::endl;
+	out<<"Line Number --> "<<obj.lineNumber<<std::endl;
 	out<<"\n------------------------------------------------------------------------------\n";
 	return out;
 }
