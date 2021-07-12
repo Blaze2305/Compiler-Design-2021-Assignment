@@ -1,6 +1,5 @@
 #include<iostream>
 
-
 #include "src/Utils/Utils.h"
 #include "src/Models/Structs.h"
 #include "src/Scanner/Scanner.h"
@@ -37,7 +36,7 @@ int main(int argc, char *argv[]){
 		exit(1);
 	}
 	std::cout<<"VALID CODE\n";
-
 	parser.showSymbolTable();
+
 	return 0;
 }

@@ -7,6 +7,7 @@ char tabChar = '\t';
 
 Parser::Parser(std::string fileName){
 	scanner = new Scanner(fileName);
+	identifierCheckFlag = false;
 	count=0;
 }
 
@@ -15,22 +16,20 @@ Parser::~Parser(){
 }
 
 void Parser::showSymbolTable(){
-	std::string line = std::string(70,'-');
-	std::ostringstream out ;
-	out<<line<<"\n";
-	out<<std::setw(40)<<"SYMBOL TABLE\n\n";
-	// out<<std::setw(15)<<"Symbol Name"<<std::setw(15)<<"Type"<<std::setw(15)<<"Value"<<std::setw(20)<<"Line Number\n";
-	out<<std::setw(15)<<"Symbol Name"<<std::setw(15)<<"Type"<<std::setw(20)<<"Line Number\n";
-	out<<line<<"\n";
-	for(auto const& [key,value] : this->symtab.SymbolTableMap){
-		// out<<std::setw(15)<<value.symbolName<<std::setw(15)<<value.type<<std::setw(15)<<value.attribute<<std::setw(20)<<value.lineNumber<<"\n";
-		out<<std::setw(15)<<value.symbolName<<std::setw(15)<<value.type<<std::setw(20)<<value.lineNumber<<"\n";
-	}
-	out<<line<<"\n";
-	std::cout<<out.str()<<std::endl;
+	this->symtab.showSymbolTable();
 }
 
 void Parser::accept(TokenType expected){
+	if(expected == Identifier && identifierCheckFlag){
+		if(!this->symtab.checkIfSymbolExists(currentToken.Value)){
+			std::ostringstream out;
+			out << "Syntax error on line ";
+			out << currentToken.lineNumber;
+			out << "  UNKNOWN IDENTIFIER ";
+			out << currentToken.Value;
+			throw  std::runtime_error(out.str());
+		}
+	}
 	if(currentToken.tokenType == expected){
 		printAcceptedToken(currentToken.tokenType,currentToken.lineNumber,currentToken.Value);
 		currentToken =  scanner->getToken();
@@ -76,6 +75,7 @@ void Parser::parseProgram(){
 	if(checkToken(Def)){
 		parseDeclList();
 	}
+	identifierCheckFlag = true;
 	parseStmtList();
 	accept(End);
 	tabNum-=1;

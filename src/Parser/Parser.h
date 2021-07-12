@@ -10,7 +10,6 @@
 #include<stdexcept>
 #include<sstream>
 #include<vector>
-#include <iomanip>
 
 
 class Parser{
@@ -19,6 +18,7 @@ class Parser{
 		Scanner *scanner;
 		SymbolTable symtab;
 		int count;
+		bool identifierCheckFlag;
 
 		std::vector<std::string> symbolNamesList;
 		//parsing methods

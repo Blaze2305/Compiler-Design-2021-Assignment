@@ -79,13 +79,17 @@ TokenType Scanner::scanToken(){
 			}else if(isOperator(std::string(1,this->currentChar))){
 				while(isOperator(std::string(1,this->currentChar))){
 					acceptChar();
-					result = Operator;
 				}
+				
 				// get semicolon ,assignment and colon
 				try{
 					result = TOKEN_MAP.at(this->currentString);
 				}catch(std::out_of_range err){
-					result = Operator;
+					if(isOperator(this->currentString)){
+						result = Operator;
+					}else{
+						result = None;
+					}
 				}
 			}
 			else{

@@ -5,6 +5,7 @@
 #include<map>
 #include<stdexcept>
 #include<sstream>
+#include <iomanip>
 #include "../Models/Structs.h"
 
 class SymbolTable{
@@ -15,9 +16,10 @@ class SymbolTable{
 	public:
 		void addSymbolToTable(std::string symbolName,int lineNumber ,std::string type);
 		void setSymbolValue(std::string symbolName,std::string value);
+		bool checkIfSymbolExists(std::string symbolName);
+		void SymbolTable::showSymbolTable();
 		// void setSymbolType(std::string symbolName,std::string type);
 
-		friend class Parser;
 };
 
 
