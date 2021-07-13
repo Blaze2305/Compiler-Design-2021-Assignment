@@ -1,6 +1,6 @@
 global
 	def
-		a:float;
+		a:int;
 		b:int;
 	end
 	a = 1;
