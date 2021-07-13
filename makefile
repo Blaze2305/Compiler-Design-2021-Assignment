@@ -5,7 +5,7 @@ TEST_FILE_NAME = testInput.txt
 COMPRESSOR = tar 
 COMPRESSOR_FLAGS = -czvf
 ZIP_NAME = 4NI18CS122_4NI18CS121_4NI18CS126.tar.gz
-ZIP_EXCLUDES = --exclude="./.git" --exclude="./.vscode" --exclude="./bin"
+ZIP_EXCLUDES = --exclude="./.git" --exclude="./.vscode" --exclude="./bin" --exclude="*.tar.gz"
 
 ifeq ($(OS),Windows_NT) 
 GXX := cl /EHsc /std:c++17
