@@ -1,7 +1,7 @@
 SOURCE_DIR = src
 SOURCES = $(wildcard *.cpp) $(wildcard src/*/*.cpp)
 BUILD_DIR = bin
-TEST_FILE_NAME = testInput.txt
+TEST_FILE_NAME = validTestInput.txt
 COMPRESSOR = tar 
 COMPRESSOR_FLAGS = -czvf
 ZIP_NAME = 4NI18CS122_4NI18CS121_4NI18CS126.tar.gz
