@@ -60,6 +60,12 @@ static const std::map<std::string,TokenType> TOKEN_MAP = {
 	},
 	{
 		">",Conditional
+	},
+	{
+		">=",Conditional
+	},
+	{
+		"<=",Conditional
 	}
 };
 

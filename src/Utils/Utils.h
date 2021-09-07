@@ -16,7 +16,7 @@
 #include <cctype>
 #include "../Models/Structs.h"
 
-static const std::array<std::string,14> OPERATORS = {";",":","+","-","*","%","/","!=","=","==","<",">","!",","};
+static const std::array<std::string,16> OPERATORS = {";",":","+","-","*","%","/","!=","=","==","<",">","!",",","<=",">="};
 
 static const std::array<TokenType,2> IGNORE_OPERATORS = {SemiColon,Colon};
 
